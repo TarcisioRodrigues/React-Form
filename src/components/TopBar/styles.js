@@ -4,7 +4,7 @@ export const Container=styled.div`
 width: 100%;
 height: 70px;
 display: flex;
-background-color: #bdc3c7;
+background-color: #fff;
 justify-content: space-between;
 `
 export const Perfil=styled.div`

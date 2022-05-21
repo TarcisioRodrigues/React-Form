@@ -1,4 +1,5 @@
 import { Home } from "./Pages/Home";
+import { Show } from "./Pages/Show";
 
 
 
@@ -6,7 +7,7 @@ import { Home } from "./Pages/Home";
 
 function App() {
   return (
-<Home/>
+<Show/>
   );
 }
 
