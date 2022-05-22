@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
-
+import {mobile} from '../../responsive'
 export const Container=styled.div`
 width: 917px;
 height: 308px;
+${mobile({ height: "90px" },{width:"150px"})};
 
 
 justify-content: space-between;
-margin-top: 180px;
+margin-top: 120px;
 display: flex;
 flex-direction: column;
 background-color: #FFFFFF;

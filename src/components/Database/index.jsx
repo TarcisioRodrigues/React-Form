@@ -1,12 +1,12 @@
 import React from 'react';
 
 import icon from '../../assets/Vector.png'
- import { Container,Title ,Table,Local,Icon,TR,TH,Button,Button2} from './styles';
+ import { Container,Title ,Table,Local,Icon,TR,TH,Button,Button2,LI} from './styles';
  import {FiTrash,FiEdit2} from 'react-icons/fi'
  
 
 
-export const Database = () => {
+export const Database = (props) => {
   
   return(
     
@@ -26,33 +26,15 @@ export const Database = () => {
 	</thead>
 	<tbody>
 	<tr>
-		<td>Nome</td>
-		<td>20</td>
-		<td>Masculino</td>
-		<td>Usuario</td>
-		<td><Button><FiTrash/></Button> <Button2><FiEdit2/></Button2> </td>
+		
+	{props.itemList?.map((item)=>(<TR><td>{item}</td></TR>))}
+	{props.itemList2?.map((item2)=>( <TR><td>{item2}</td></TR>))}
+	{props.itemList4?.map((item3)=>( <TR><td>{item3}</td></TR>))}
+	{props.itemList3?.map((item4)=>( <TR><td>{item4}</td></TR>))} 
+
 	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	</tr>
+	
+	
 	</tbody>
 </Table>
     

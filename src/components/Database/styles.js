@@ -1,13 +1,16 @@
 import styled from 'styled-components'
+import {mobile} from '../../responsive'
 export const Container=styled.div`
 width: 817px;
-height: 100px;
+height: 200px;
+${mobile({ height: "50px" })};
 display: flex;
 padding: 10px;
 margin: 0 auto;
 flex-direction: column;
 -webkit-box-shadow: 0px 9px 16px -1px #000000; 
 box-shadow: 0px 9px 16px -1px #000000;
+position: relative;
 `
 export const Local=styled.div`
 display: flex;
@@ -30,9 +33,14 @@ cursor: pointer;
 `
 export const TR=styled.tr`
 border-bottom: 1px solid #000;
-padding:5px;
+width: 10%;
+position: relative;
 `
 export const TH=styled.th`
 border-bottom: 1px solid #000;
 padding:5px;
+`
+export const LI=styled.li`
+text-decoration: none;
+list-style: none;
 `
