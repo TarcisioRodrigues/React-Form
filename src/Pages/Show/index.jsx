@@ -5,74 +5,42 @@ import { Database } from '../../components/Database';
 
 import { Container,Tittle ,FORM, Text,INPUT,INPUT2, Local,Desk,Button, Local2,Button2,SELECT,SELECT2,Container2} from './styles';
 import { useState } from 'react';
-import { useEffect } from 'react';
+import {useForm} from 'react-hook-form'
+// import { useEffect } from 'react';
    export const Show= (props) => {
-   const[user,setUser]=useState({
-      id:1,
-      nome:"",
-      idade:"",
-      genero:"",
-      perfil:""
-   })
-   const [itemsList, setItemsList] = useState([])
+   const {register,handleSubmit,reset}=useForm()
  
- 
-   
-   const handleAdd=(event)=>{
-      event.preventDefault()
-      if(user) {
-      setItemsList([...itemsList,user])
-      setUser('')
-      console.log(itemsList)
-      // }
-      // if(user.idade) {
-      //    setItemsList([...itemsList,user.idade])
-      //    setUser('')
-      //    console.log(itemsList)
-      //    }
-      //    if(user.perfil) {
-      //       setItemsList([...itemsList,user.perfil])
-      //       setUser('')
-      //       console.log(itemsList)
-      //       }
-      //       if(user.genero) {
-      //          setItemsList([...itemsList,user.genero])
-      //          setUser('')
-      //          console.log(itemsList)
-              }
-     
-     setUser('')
+const{itemList,setItemList}=useState([])
+   const handleAdd=(data)=>{
+      console.log(data)
+      
    }
    
    
 return(
   <Container>
      <TopBar/>
-      <Database itemList={itemsList}  />
+      <Database ItemList={itemList}  />
     <Container2>
       
       <Tittle>Novo usuario</Tittle>
-         <FORM onSubmit={handleAdd}>
+         <FORM onSubmit={handleSubmit(handleAdd)}>
          <Text>Perfil</Text>
-         <SELECT2   required value={user.perfil }
-            onChange={(event)=>setUser(event.target.value)}>
+         <SELECT2   {...register("test")}>
          <option value=""></option>
         <option value="Administrador">Administrador</option>
         <option value="Usuario">Usuario</option>
         </SELECT2>
            <Text>Nome</Text>
-         <INPUT required value={user.nome }
-            onChange={(event)=>setUser(event.target.value)} />
+         <INPUT {...register("test1")} />
           <Local>
           <Desk>
           <Text>Idade</Text>
-         <INPUT2 required  type="number" value={user.idade }
-            onChange={(event)=>setUser(event.target.value)} />
+         <INPUT2 {...register("test2")} />
           </Desk>
          <Desk>
          <Text>Genero</Text>
-         <SELECT required value={user.genero}
-            onChange={(event)=>setUser(event.target.value)}>
+         <SELECT {...register("test3")}>
          <option value=""></option>
         <option value="Feminino">Feminino</option>
         <option value="Masculino">Masculino</option>
@@ -81,7 +49,7 @@ return(
           </Local>
          <Local2>
            
-         <Button2  >Limpar dados</Button2>
+         <Button2 onClick={()=>reset()}  >Limpar dados</Button2>
           <Button type='submit'  >Salvar</Button>
          </Local2>
          </FORM>

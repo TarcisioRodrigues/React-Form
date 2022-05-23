@@ -7,9 +7,10 @@ import icon from '../../assets/Vector.png'
 
 
 export const Database = (props) => {
-  const handleDelete=()=>{
+  // const handleDelete=()=>{
 		
-	}
+	// }
+	console.log(props)
   return(
     
     <Container>
@@ -27,16 +28,9 @@ export const Database = (props) => {
 	</TR>
 	</thead>
 	<tbody>
-	{props.itemList?.map((item,index)=>(
-	<tr key={index}>
-		
-	
-<td >{item.nome}</td>
-	<td>{item.idade}</td>
-	<td>{item.genero}</td>
-	<td>{item.perfil}</td>
+		{props.itemList?.map((item)=>(
+			
 		<td><Button><FiTrash/></Button> <Button2><FiEdit2/></Button2> </td>
-	</tr>
 	))}
 
 	
