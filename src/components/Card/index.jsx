@@ -18,7 +18,7 @@ export const Card = (props) => {
         </USER>
         <Total>
         <Title2>Total</Title2>
-          <Title3>{props.count}</Title3>
+          <Title3>3</Title3>
         </Total>
         
       </Wrapper>

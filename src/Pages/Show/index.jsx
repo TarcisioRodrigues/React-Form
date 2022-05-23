@@ -7,73 +7,72 @@ import { Container,Tittle ,FORM, Text,INPUT,INPUT2, Local,Desk,Button, Local2,Bu
 import { useState } from 'react';
 import { useEffect } from 'react';
    export const Show= (props) => {
-   const[nome,setNome]=useState('')
-   const[idade,setIdade]=useState('')
-   const[perfil,setPerfil]=useState('')
-   const[genero,setGenero]=useState('')
+   const[user,setUser]=useState({
+      id:1,
+      nome:"",
+      idade:"",
+      genero:"",
+      perfil:""
+   })
    const [itemsList, setItemsList] = useState([])
-   const [itemsList2, setItemsList2] = useState([])
-   const [itemsList3, setItemsList3] = useState([])
-   const [itemsList4, setItemsList4] = useState([])
+ 
  
    
    const handleAdd=(event)=>{
       event.preventDefault()
-      if(nome) {
-      setItemsList([...itemsList,nome])
-      setNome('')
+      if(user) {
+      setItemsList([...itemsList,user])
+      setUser('')
       console.log(itemsList)
-      }
-      if(idade) {
-      setItemsList2([...itemsList2,idade])
-      setIdade('')
-      console.log(itemsList2)
-      }
-      if(perfil) {
-      setItemsList3([...itemsList3,perfil])
-      setPerfil('')
-      console.log(itemsList3)
-      }
-      if(genero) {
-      setItemsList4([...itemsList4,genero])
-      setGenero('')
-      console.log(setItemsList4)
-      }
+      // }
+      // if(user.idade) {
+      //    setItemsList([...itemsList,user.idade])
+      //    setUser('')
+      //    console.log(itemsList)
+      //    }
+      //    if(user.perfil) {
+      //       setItemsList([...itemsList,user.perfil])
+      //       setUser('')
+      //       console.log(itemsList)
+      //       }
+      //       if(user.genero) {
+      //          setItemsList([...itemsList,user.genero])
+      //          setUser('')
+      //          console.log(itemsList)
+              }
      
-      setIdade('')
-      setNome('')
-      setPerfil('')
+     setUser('')
    }
    
    
 return(
   <Container>
      <TopBar/>
-      <Database itemList={itemsList} itemsList2={itemsList2} itemsList3={itemsList3} itemsList4={itemsList4} />
+      <Database itemList={itemsList}  />
     <Container2>
       
       <Tittle>Novo usuario</Tittle>
          <FORM onSubmit={handleAdd}>
          <Text>Perfil</Text>
-         <SELECT2   required value={perfil }
-            onChange={(event)=>setPerfil(event.target.value)}>
+         <SELECT2   required value={user.perfil }
+            onChange={(event)=>setUser(event.target.value)}>
          <option value=""></option>
         <option value="Administrador">Administrador</option>
         <option value="Usuario">Usuario</option>
         </SELECT2>
            <Text>Nome</Text>
-         <INPUT required value={nome }
-            onChange={(event)=>setNome(event.target.value)} />
+         <INPUT required value={user.nome }
+            onChange={(event)=>setUser(event.target.value)} />
           <Local>
           <Desk>
           <Text>Idade</Text>
-         <INPUT2 required  type="number" value={idade }
-            onChange={(event)=>setIdade(event.target.value)} />
+         <INPUT2 required  type="number" value={user.idade }
+            onChange={(event)=>setUser(event.target.value)} />
           </Desk>
          <Desk>
          <Text>Genero</Text>
-         <SELECT required value={genero}
-            onChange={(event)=>setGenero(event.target.value)}>
+         <SELECT required value={user.genero}
+            onChange={(event)=>setUser(event.target.value)}>
          <option value=""></option>
         <option value="Feminino">Feminino</option>
         <option value="Masculino">Masculino</option>
