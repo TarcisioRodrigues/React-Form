@@ -28,10 +28,18 @@ export const Database = (props) => {
 	</TR>
 	</thead>
 	<tbody>
-		{/* {props.State?.map((item)=>(
-				<td> </td>
-		<td><Button><FiTrash/></Button> <Button2><FiEdit2/></Button2> </td>
-	))} */}
+		 {props.listUser?.map((item)=>(
+			 <>
+			<tr>
+		<td>{item.nome}</td>
+		<td>{item.idade}</td>
+		<td>{item.genero}</td>
+		<td>{item.perfil}</td>
+		</tr>
+			
+			
+			 </>
+	))} 
 
 	
 	

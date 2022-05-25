@@ -17,14 +17,34 @@ import { useState } from 'react';
 
    const handleAdd=(event)=>{
       event.preventDefault();
-      setUser([...user,nome,idade,genero,perfil])
-   }
+      const arrayUser=[...user]
+      const userData={
+         nome,
+         idade,
+         genero,
+         perfil
+      }
+      arrayUser.push(userData)
+      
+      // setUser(oldState=>{})
+    
+      console.log(arrayUser)
+      setUser(arrayUser)
    
+      Limpar()
+      
+   }
+   const Limpar=()=>{
+      setNome('')
+      setIdade('')
+      setGenero('')
+      setPerfil('')
+   }
    
 return(
   <Container>
      <TopBar/>
-      <Database State={user}  />
+      <Database listUser={user}  />
     <Container2>
       
       <Tittle>Novo usuario</Tittle>
@@ -36,7 +56,7 @@ return(
         <option value="Usuario">Usuario</option>
         </SELECT2>
            <Text>Nome</Text>
-         <INPUT  value={nome} onChange={e => setNome(e.target.value)} />
+         <INPUT   value={nome} onChange={e => setNome(e.target.value)} />
           <Local>
           <Desk>
           <Text>Idade</Text>
@@ -53,7 +73,7 @@ return(
           </Local>
          <Local2>
            
-         <Button2   >Limpar dados</Button2>
+         <Button2  onClick={Limpar} >Limpar dados</Button2>
           <Button type='submit'  >Salvar</Button>
          </Local2>
          </FORM>
