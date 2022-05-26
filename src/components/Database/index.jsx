@@ -7,10 +7,11 @@ import icon from '../../assets/Vector.png'
 
 
 export const Database = (props) => {
-  // const handleDelete=()=>{
-		
-	// }
-	console.log(props)
+	console.log(props.ItemList)
+	const handleDelete=()=>{
+		props.itemList.splice(1,1)
+	}
+
   return(
     
     <Container>
@@ -35,6 +36,7 @@ export const Database = (props) => {
 		<td>{item.idade}</td>
 		<td>{item.genero}</td>
 		<td>{item.perfil}</td>
+		<td><Button onClick={handleDelete}><FiTrash/></Button> <Button2><FiEdit2/></Button2> </td>
 		</tr>
 			
 			

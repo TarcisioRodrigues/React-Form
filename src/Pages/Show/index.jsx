@@ -25,7 +25,9 @@ import { useState } from 'react';
          perfil
       }
       arrayUser.push(userData)
-      
+      if(!userData){
+         console.log("Preencha o campos")
+      }
       // setUser(oldState=>{})
     
       console.log(arrayUser)
@@ -50,21 +52,21 @@ return(
       <Tittle>Novo usuario</Tittle>
          <FORM onSubmit={handleAdd}>
          <Text>Perfil</Text>
-         <SELECT2 value={perfil} onChange={e => setPerfil(e.target.value)}  >
+         <SELECT2 value={perfil} onChange={e => setPerfil(e.target.value)}  required >
          <option value=""></option>
         <option value="Administrador">Administrador</option>
         <option value="Usuario">Usuario</option>
         </SELECT2>
            <Text>Nome</Text>
-         <INPUT   value={nome} onChange={e => setNome(e.target.value)} />
+         <INPUT   required value={nome} onChange={e => setNome(e.target.value)} />
           <Local>
           <Desk>
           <Text>Idade</Text>
-         <INPUT2 type="number"  value={idade} onChange={e => setIdade(e.target.value)} />
+         <INPUT2 required type="number"  value={idade} onChange={e => setIdade(e.target.value)} />
           </Desk>
          <Desk>
          <Text>Genero</Text>
-         <SELECT value={genero} onChange={e => setGenero(e.target.value)}>
+         <SELECT value={genero} onChange={e => setGenero(e.target.value)} required >
          <option value=""></option>
         <option value="Feminino">Feminino</option>
         <option value="Masculino">Masculino</option>
