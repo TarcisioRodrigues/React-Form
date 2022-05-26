@@ -36,7 +36,14 @@ export const Database = (props) => {
 		<td>{item.idade}</td>
 		<td>{item.genero}</td>
 		<td>{item.perfil}</td>
-		<td><Button onClick={handleDelete}><FiTrash/></Button> <Button2><FiEdit2/></Button2> </td>
+				{item.perfil=="Administrador"&&(
+						<td><Button2><FiEdit2/></Button2> </td>
+				)}
+				{item.perfil=="Usuario"&&(
+					<td> 	<Button onClick={handleDelete}><FiTrash/></Button><Button2><FiEdit2/></Button2> </td>
+				)}
+			 
+				
 		</tr>
 			
 			
