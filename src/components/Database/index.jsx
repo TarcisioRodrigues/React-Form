@@ -1,7 +1,7 @@
 import React from 'react';
 
 import icon from '../../assets/Vector.png'
- import { Container,Title ,Table,Local,Icon,TR,TH,Button,Button2,LI} from './styles';
+ import { Container,Title ,Table,Local,Icon,TR,TH,Button,Button2,} from './styles';
  import {FiTrash,FiEdit2} from 'react-icons/fi'
  
 
@@ -9,7 +9,7 @@ import icon from '../../assets/Vector.png'
 export const Database = (props) => {
 	console.log(props.ItemList)
 	const handleDelete=()=>{
-		props.itemList.splice(1,1)
+		props.ItemList.delete()
 	}
 
   return(
@@ -36,11 +36,11 @@ export const Database = (props) => {
 		<td>{item.idade}</td>
 		<td>{item.genero}</td>
 		<td>{item.perfil}</td>
-				{item.perfil=="Administrador"&&(
+				{item.perfil==="Administrador"&&(
 						<td><Button2><FiEdit2/></Button2> </td>
 				)}
-				{item.perfil=="Usuario"&&(
-					<td> 	<Button onClick={handleDelete}><FiTrash/></Button><Button2><FiEdit2/></Button2> </td>
+				{item.perfil==="Usuario"&&(
+					<td> 	<Button onClick={()=>{props.Deletar()}}><FiTrash/></Button><Button2><FiEdit2/></Button2> </td>
 				)}
 			 
 				

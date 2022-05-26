@@ -4,7 +4,7 @@ import { TopBar } from '../../components/TopBar';
 import { Database } from '../../components/Database';
 
 import { Container,Tittle ,FORM, Text,INPUT,INPUT2, Local,Desk,Button, Local2,Button2,SELECT,SELECT2,Container2} from './styles';
-import { useState } from 'react';
+import { useState ,useCallback} from 'react';
 
 
    export const Show= () => {
@@ -42,11 +42,16 @@ import { useState } from 'react';
       setGenero('')
       setPerfil('')
    }
+   const handleRemoveItem = useCallback((users) => {
+      let newTodos = [...user];
+      newTodos.splice(user.indexOf(users), 1)
+      setUser(newTodos);
+    }, [user]);
    
 return(
   <Container>
      <TopBar/>
-      <Database listUser={user}  />
+      <Database listUser={user} Deletar={handleRemoveItem} />
     <Container2>
       
       <Tittle>Novo usuario</Tittle>
