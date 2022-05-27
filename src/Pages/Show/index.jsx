@@ -14,7 +14,7 @@ import { useState ,useCallback} from 'react';
    const [idade,setIdade]=useState('')
    const [genero,setGenero]=useState('')
    const [perfil,setPerfil]=useState('')
-
+ 
    const handleAdd=(event)=>{
       event.preventDefault();
       const arrayUser=[...user]
@@ -47,11 +47,14 @@ import { useState ,useCallback} from 'react';
       newTodos.splice(user.indexOf(users), 1)
       setUser(newTodos);
     }, [user]);
+    const handleUpdate=()=>{
+   setUser(array=>[...array,`${array.length}`])
+   }
    
 return(
   <Container>
      <TopBar/>
-      <Database listUser={user} Deletar={handleRemoveItem} />
+      <Database listUser={user} Deletar={handleRemoveItem} Update={handleUpdate} />
     <Container2>
       
       <Tittle>Novo usuario</Tittle>
