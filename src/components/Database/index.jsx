@@ -2,16 +2,12 @@ import React from 'react';
 
 import icon from '../../assets/Vector.png'
  import { Container,Title ,Table,Local,Icon,TR,TH,Button,Button2,} from './styles';
- import {FiTrash,FiEdit2} from 'react-icons/fi'
+ import {FiTrash,FiEdit2} from 'react-icons/fi';
  
-
 
 export const Database = (props) => {
 	console.log(props.ItemList)
-	const handleDelete=()=>{
-		props.ItemList.delete()
-	}
-
+  
   return(
     
     <Container>

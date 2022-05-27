@@ -2,54 +2,16 @@
 
 import { TopBar } from '../../components/TopBar';
 import { Database } from '../../components/Database';
-
+import {useTools} from '../../hooks/useTools'
 import { Container,Tittle ,FORM, Text,INPUT,INPUT2, Local,Desk,Button, Local2,Button2,SELECT,SELECT2,Container2} from './styles';
-import { useState ,useCallback} from 'react';
 
 
-   export const Show= () => {
 
-   const [user,setUser]=useState([])
-   const [nome,setNome]=useState('')
-   const [idade,setIdade]=useState('')
-   const [genero,setGenero]=useState('')
-   const [perfil,setPerfil]=useState('')
- 
-   const handleAdd=(event)=>{
-      event.preventDefault();
-      const arrayUser=[...user]
-      const userData={
-         nome,
-         idade,
-         genero,
-         perfil
-      }
-      arrayUser.push(userData)
-      if(!userData){
-         console.log("Preencha o campos")
-      }
-      // setUser(oldState=>{})
-    
-      console.log(arrayUser)
-      setUser(arrayUser)
-   
-      Limpar()
-      
-   }
-   const Limpar=()=>{
-      setNome('')
-      setIdade('')
-      setGenero('')
-      setPerfil('')
-   }
-   const handleRemoveItem = useCallback((users) => {
-      let newTodos = [...user];
-      newTodos.splice(user.indexOf(users), 1)
-      setUser(newTodos);
-    }, [user]);
-    const handleUpdate=()=>{
-   setUser(array=>[...array,`${array.length}`])
-   }
+export const Show= (props) => {
+   const {user,handleAdd,handleRemoveItem,
+      handleUpdate,Limpar,perfil,setPerfil,idade,setIdade,
+      nome,setNome,genero,setGenero}=useTools()
+  
    
 return(
   <Container>
