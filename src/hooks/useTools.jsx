@@ -8,7 +8,7 @@ const [nome,setNome]=useState('')
 const [idade,setIdade]=useState('')
 const [genero,setGenero]=useState('')
 const [perfil,setPerfil]=useState('')
-const [count,setCount]=useState(0)
+const [count,setCount]=useState(1)
    const handleAdd=(event)=>{
     event.preventDefault();
     const arrayUser=[...user]
@@ -35,6 +35,7 @@ const [count,setCount]=useState(0)
  }
   const Contar=()=>{
     setCount(()=>count+1)
+    console.log()
  }
   const Limpar=()=>{
     setNome('')
@@ -49,6 +50,7 @@ const [count,setCount]=useState(0)
   }, [user]);
    const handleUpdate=()=>{
  setUser(array=>[...array,`${array.length}`])
+ handleRemoveItem()
  }
  return { idade,nome,perfil,genero,user,setGenero,setIdade,setPerfil,setNome ,Limpar,handleAdd,handleRemoveItem,handleUpdate,Contar,setUser}
 }
