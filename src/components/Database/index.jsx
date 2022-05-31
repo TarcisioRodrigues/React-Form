@@ -33,7 +33,7 @@ export const Database = (props) => {
 		<td>{item.genero}</td>
 		<td>{item.perfil}</td>
 				{item.perfil==="Administrador"&&(
-						<td><Button2><FiEdit2/></Button2> </td>
+						<td><Button2 onClick={()=>{props.Update()}}><FiEdit2/></Button2> </td>
 				)}
 				{item.perfil==="Usuario"&&(
 					<td> 	<Button onClick={()=>{props.Deletar()}}><FiTrash/></Button><Button2 onClick={()=>{props.Update()}}><FiEdit2/></Button2> </td>
