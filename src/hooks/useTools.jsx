@@ -50,7 +50,9 @@ const [count,setCount]=useState(1)
   }, [user]);
    const handleUpdate=()=>{
  setUser(array=>[...array,`${array.length}`])
+ 
  handleRemoveItem()
+ alert('Edite agora!!')
  }
  return { idade,nome,perfil,genero,user,setGenero,setIdade,setPerfil,setNome ,Limpar,handleAdd,handleRemoveItem,handleUpdate,Contar,setUser}
 }
