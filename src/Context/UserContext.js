@@ -55,7 +55,7 @@ const handleAdd=(event)=>{
     handleCountN()
   }
  
-const handleUpdate=()=>{
+const handleUpdate=(index)=>{
  setUser(array=>[...array,`${array.length}`])
  
  handleRemoveItem()
