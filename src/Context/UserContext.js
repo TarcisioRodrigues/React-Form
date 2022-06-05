@@ -49,21 +49,27 @@ const handleAdd=(event)=>{
     setGenero('')
     setPerfil('')
  }
-  const handleRemoveItem = (index)=>{
-      const listUser=user.slice(1)
+  const handleRemoveItem = () => {
+    const listUser=user.slice(1)
     setUser(listUser)
     handleCountN()
-  };
+  }
  
-const handleUpdate=(index)=>{
+const handleUpdate=()=>{
+ setUser(array=>[...array,`${array.length}`])
  
-  const findUser=user.find((u,indexUser)=>indexUser===index)
-  console.log('usuario na posição',findUser)
+ handleRemoveItem()
+ const findUser=user.find((u,indexUser)=>indexUser===index)
+ console.log('usuario na posição',findUser)
+ alert('Edite agora!!')
+ setNome(findUser.nome)
+ setGenero(findUser.genero)
+ setPerfil(findUser.perfil)
+ setIdade(findUser.idade)
+
+
+
  
-  setNome(findUser.nome)
-  setGenero(findUser.genero)
-  setPerfil(findUser.perfil)
-  setIdade(findUser.idade)
  }
 console.log("Dentro do contexto",count)
   return (
