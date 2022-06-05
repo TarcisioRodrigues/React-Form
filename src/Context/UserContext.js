@@ -1,8 +1,10 @@
+import React, { createContext} from 'react';
 import { useState ,useCallback,useEffect} from 'react';
 
+const UserContext=createContext({})
 
 
-export const useTools=()=>{
+const UserProvider=({ children })=> {
   const [user,setUser]=useState([])
 const [nome,setNome]=useState('')
 const [idade,setIdade]=useState('')
@@ -39,10 +41,7 @@ const handleAdd=(event)=>{
  const handleCountN=()=>{
   setCount((anterior)=>anterior-1)
  }
- useEffect(()=>{
-    console.log(count)
-    
-},[count])
+
 
   const Limpar=()=>{
     setNome('')
@@ -50,18 +49,31 @@ const handleAdd=(event)=>{
     setGenero('')
     setPerfil('')
  }
-  const handleRemoveItem = useCallback((users) => {
-    let newTodos = [...user];
-    newTodos.splice(user.indexOf(users), 1)
-    setUser(newTodos);
+  const handleRemoveItem = (index)=>{
+      const listUser=user.slice(1)
+    setUser(listUser)
     handleCountN()
-  }, [user]);
-   const handleUpdate=()=>{
- setUser(array=>[...array,`${array.length}`])
+  };
  
- handleRemoveItem()
- alert('Edite agora!!')
+const handleUpdate=(index)=>{
+ 
+  const findUser=user.find((u,indexUser)=>indexUser===index)
+  console.log('usuario na posição',findUser)
+ 
+  setNome(findUser.nome)
+  setGenero(findUser.genero)
+  setPerfil(findUser.perfil)
+  setIdade(findUser.idade)
  }
-
- return { idade,nome,perfil,genero,user,count,setGenero,setIdade,setPerfil,setNome ,Limpar,handleAdd,handleRemoveItem,handleUpdate,setUser,setCount,handleCount,useTools}
+console.log("Dentro do contexto",count)
+  return (
+    
+    <UserContext.Provider value={{handleAdd,handleRemoveItem,
+    handleUpdate,handleCount,setGenero,setIdade,setPerfil,setNome,
+    nome,idade,perfil,genero,user,count}}>
+      {children}
+    </UserContext.Provider>
+  );
 }
+
+export { UserContext, UserProvider};

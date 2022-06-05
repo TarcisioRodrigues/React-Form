@@ -2,7 +2,7 @@
 
 import { TopBar } from '../../components/TopBar';
 import { Database } from '../../components/Database';
-import {useTools} from '../../hooks/useTools'
+import {useUser} from '../../hooks/useUser'
 import { Container,Tittle ,FORM, Text,INPUT,INPUT2, Local,Desk,Button, Local2,Button2,SELECT,SELECT2,Container2} from './styles';
 
 
@@ -10,17 +10,17 @@ import { Container,Tittle ,FORM, Text,INPUT,INPUT2, Local,Desk,Button, Local2,Bu
 export const Show= (props) => {
    const {user,handleAdd,handleRemoveItem,
       handleUpdate,Limpar,perfil,setPerfil,idade,setIdade,
-      nome,setNome,genero,setGenero}=useTools()
+      nome,setNome,genero,setGenero}=useUser()
   
    
 return(
   <Container>
      <TopBar/>
-      <Database listUser={user} Deletar={handleRemoveItem} Update={handleUpdate} />
+      <Database />
     <Container2>
       
       <Tittle>Novo usuario</Tittle>
-         <FORM onSubmit={handleAdd}>
+         <FORM onSubmit={handleAdd} >
          <Text>Perfil</Text>
          <SELECT2 value={perfil} onChange={e => setPerfil(e.target.value)}  required >
          <option value=""></option>
@@ -46,7 +46,7 @@ return(
          <Local2>
            
          <Button2  onClick={Limpar} >Limpar dados</Button2>
-          <Button type='submit'  >Salvar</Button>
+          <Button type='submit'   >Salvar</Button>
          </Local2>
          </FORM>
         

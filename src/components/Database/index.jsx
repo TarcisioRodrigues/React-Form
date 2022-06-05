@@ -4,8 +4,11 @@ import icon from '../../assets/Vector.png'
  import { Container,Title ,Table,Local,Icon,TR,TH,Button,Button2,} from './styles';
  import {FiTrash,FiEdit2} from 'react-icons/fi';
  
-
+ import {useUser} from '../../hooks/useUser'
 export const Database = (props) => {
+	const {user,handleAdd,handleRemoveItem,
+		handleUpdate,Limpar,perfil,setPerfil,idade,setIdade,
+		nome,setNome,genero,setGenero}=useUser()
 	console.log(props.ItemList)
   
   return(
@@ -25,18 +28,18 @@ export const Database = (props) => {
 	</TR>
 	</thead>
 	<tbody>
-		 {props.listUser?.map((item)=>(
+		 {user?.map((item,index)=>(
 			 <>
-			<tr>
+			<tr key={index}>
 		<td>{item.nome}</td>
 		<td>{item.idade}</td>
 		<td>{item.genero}</td>
 		<td>{item.perfil}</td>
 				{item.perfil==="Administrador"&&(
-						<td><Button2 onClick={()=>{props.Update()}}><FiEdit2/></Button2> </td>
+						<td><Button2 onClick={handleUpdate(index)}><FiEdit2/></Button2> </td>
 				)}
 				{item.perfil==="Usuario"&&(
-					<td> 	<Button onClick={()=>{props.Deletar()}}><FiTrash/></Button><Button2 onClick={()=>{props.Update()}}><FiEdit2/></Button2> </td>
+					<td> 	<Button onClick={()=>{handleRemoveItem(index)}}><FiTrash/></Button><Button2 onClick={()=>{handleUpdate(index)}}><FiEdit2/></Button2> </td>
 				)}
 			 
 				
